@@ -118,6 +118,18 @@
    text-align: center;
 }
 
+.range-type.healthy {
+   background-color: #4cdfbb;
+}
+
+.range-type.neutral {
+   background-color: orange;
+}
+
+.range-type.unhealthy {
+   background-color: red;
+}
+
 .range-category {
    text-align: center;
    display: flex;

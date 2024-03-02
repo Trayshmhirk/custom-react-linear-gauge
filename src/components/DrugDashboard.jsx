@@ -1,4 +1,5 @@
-import { useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from "react";
 import LinearGauge from "./LinearGuage";
 import RangeInputFields from "./RangeInputFields";
 
@@ -16,19 +17,16 @@ const DrugDashboard = () => {
                value: 300,
                color: "#948c92",
                rangeType: "Neutral",
-               rangeTypeColor: "orange",
             },
             {
                value: 500,
                color: "#3b61bb",
                rangeType: "Healthy",
-               rangeTypeColor: "#4cdfbb",
             },
             {
                value: 750,
                color: "",
                rangeType: "UNHEALTHY",
-               rangeTypeColor: "red",
             },
          ],
       },
@@ -46,9 +44,10 @@ const DrugDashboard = () => {
       setDrugs(updatedDrugs);
    };
 
-   const handlePointerChange = (drugIndex, value) => {
+   const handlePointerChange = (drugIndex, pointerIndex, value, prop) => {
       const updatedDrugs = [...drugs];
-      updatedDrugs[drugIndex].pointerValue = parseInt(value);
+      updatedDrugs[drugIndex].pointers[pointerIndex][prop] =
+         prop === "value" ? parseInt(value) : value;
       setDrugs(updatedDrugs);
    };
 
@@ -78,7 +77,6 @@ const DrugDashboard = () => {
                {
                   value: 0,
                   color: "",
-                  rangeType: "",
                   rangeTypeColor: "",
                },
             ],
@@ -99,6 +97,7 @@ const DrugDashboard = () => {
                drugs={drugs}
                handleRangeChange={handleRangeChange}
                handleCategoryChange={handleCategoryChange}
+               handlePointerChange={handlePointerChange}
                addRange={addRange}
                removeRange={removeRange}
             />
@@ -110,9 +109,6 @@ const DrugDashboard = () => {
                   name={drug.name}
                   ranges={drug.ranges}
                   pointers={drug.pointers}
-                  handlePointerChange={(value) =>
-                     handlePointerChange(index, value)
-                  }
                />
             ))}
          </div>

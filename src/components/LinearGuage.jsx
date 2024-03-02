@@ -38,6 +38,13 @@ const LinearGauge = ({ ranges, pointers }) => {
       }
    };
 
+   // Mapping of range types to class names
+   const rangeTypeClasses = {
+      unhealthy: "unhealthy",
+      neutral: "neutral",
+      healthy: "healthy",
+   };
+
    return (
       <div className="linear-gauge-container">
          {/* Linear Gauge */}
@@ -57,6 +64,8 @@ const LinearGauge = ({ ranges, pointers }) => {
                   0,
                   Math.min(pointerPosition, 100)
                );
+               const rangeTypeClass =
+                  rangeTypeClasses[pointer.rangeType?.toLowerCase()];
                return (
                   <div
                      key={index}
@@ -74,14 +83,13 @@ const LinearGauge = ({ ranges, pointers }) => {
                            <div>
                               <b>{pointer.value}</b> g/ml
                            </div>
-                           <div
-                              className="range-type"
-                              style={{
-                                 background: `${pointer.rangeTypeColor}`,
-                              }}
-                           >
-                              {pointer.rangeType}
-                           </div>
+                           {pointer.rangeType.toLowerCase() in
+                              rangeTypeClasses && (
+                              <div className={`range-type ${rangeTypeClass}`}>
+                                 {pointer.rangeType}
+                              </div>
+                           )}
+
                            <div className="range-category">
                               NORMAL RANGE
                               <b className="range-value">

@@ -4,6 +4,7 @@ const RangeInputFields = ({
    drugs,
    handleRangeChange,
    handleCategoryChange,
+   handlePointerChange,
    addRange,
    removeRange,
 }) => {
@@ -63,6 +64,40 @@ const RangeInputFields = ({
                <button onClick={() => addRange(drugIndex)}>
                   Add Range for {drug.name}
                </button>
+
+               {/* Inputs for Pointers */}
+               {drug.pointers.map((pointer, pointerIndex) => (
+                  <div key={pointerIndex} className="pointer-input">
+                     <label>Pointer Value for {drug.name}:</label>
+                     <input
+                        type="number"
+                        value={pointer.value}
+                        onChange={(e) =>
+                           handlePointerChange(
+                              drugIndex,
+                              pointerIndex,
+                              e.target.value
+                           )
+                        }
+                     />
+                     <label>Range Type for {drug.name}:</label>
+                     <select
+                        value={pointer.rangeType}
+                        onChange={(e) =>
+                           handlePointerChange(
+                              drugIndex,
+                              pointerIndex,
+                              e.target.value,
+                              "rangeType"
+                           )
+                        }
+                     >
+                        <option value="Neutral">Neutral</option>
+                        <option value="Healthy">Healthy</option>
+                        <option value="Unhealthy">Unhealthy</option>
+                     </select>
+                  </div>
+               ))}
             </div>
          ))}
       </div>
