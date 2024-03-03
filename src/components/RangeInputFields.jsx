@@ -7,6 +7,8 @@ const RangeInputFields = ({
    handlePointerChange,
    addRange,
    removeRange,
+   addPointer,
+   removePointer,
 }) => {
    return (
       <div className="range-inputs">
@@ -81,6 +83,19 @@ const RangeInputFields = ({
                            )
                         }
                      />
+                     <label>Pointer Color for {drug.name}:</label>
+                     <input
+                        type="text"
+                        value={pointer.color}
+                        onChange={(e) =>
+                           handlePointerChange(
+                              drugIndex,
+                              pointerIndex,
+                              e.target.value,
+                              "color"
+                           )
+                        }
+                     />
                      <label>Range Type for {drug.name}:</label>
                      <select
                         value={pointer.rangeType}
@@ -97,8 +112,17 @@ const RangeInputFields = ({
                         <option value="Healthy">Healthy</option>
                         <option value="Unhealthy">Unhealthy</option>
                      </select>
+                     <button
+                        onClick={() => removePointer(drugIndex, pointerIndex)}
+                     >
+                        Remove
+                     </button>
                   </div>
                ))}
+
+               <button onClick={() => addPointer(drugIndex)}>
+                  Add Pointer for {drug.name}
+               </button>
             </div>
          ))}
       </div>
@@ -106,3 +130,4 @@ const RangeInputFields = ({
 };
 
 export default RangeInputFields;
+//

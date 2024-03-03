@@ -67,6 +67,22 @@ const DrugDashboard = () => {
       setDrugs(updatedDrugs);
    };
 
+   const addPointer = (drugIndex) => {
+      const updatedDrugs = [...drugs];
+      updatedDrugs[drugIndex].pointers.push({
+         value: 0,
+         color: "",
+         rangeType: "",
+      });
+      setDrugs(updatedDrugs);
+   };
+
+   const removePointer = (drugIndex, pointerIndex) => {
+      const updatedDrugs = [...drugs];
+      updatedDrugs[drugIndex].pointers.splice(pointerIndex, 1);
+      setDrugs(updatedDrugs);
+   };
+
    const addDrug = () => {
       setDrugs([
          ...drugs,
@@ -100,6 +116,8 @@ const DrugDashboard = () => {
                handlePointerChange={handlePointerChange}
                addRange={addRange}
                removeRange={removeRange}
+               addPointer={addPointer}
+               removePointer={removePointer}
             />
          </div>
          <div>
