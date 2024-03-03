@@ -6,7 +6,7 @@ import RangeInputFields from "./RangeInputFields";
 const DrugDashboard = () => {
    const [drugs, setDrugs] = useState([
       {
-         name: "Drug A",
+         name: "Drug 1",
          ranges: [
             { start: 0, end: 300, category: "good" },
             { start: 300, end: 570, category: "mid" },
@@ -26,7 +26,7 @@ const DrugDashboard = () => {
             {
                value: 750,
                color: "",
-               rangeType: "UNHEALTHY",
+               rangeType: "Unhealthy",
             },
          ],
       },
