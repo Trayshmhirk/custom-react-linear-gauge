@@ -76,7 +76,8 @@ const RangeInputFields = ({
                            handlePointerChange(
                               drugIndex,
                               pointerIndex,
-                              e.target.value
+                              e.target.value,
+                              "value"
                            )
                         }
                      />

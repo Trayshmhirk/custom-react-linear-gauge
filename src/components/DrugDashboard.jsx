@@ -77,7 +77,7 @@ const DrugDashboard = () => {
                {
                   value: 0,
                   color: "",
-                  rangeTypeColor: "",
+                  rangeType: "",
                },
             ],
          },
