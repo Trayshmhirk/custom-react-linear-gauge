@@ -102,11 +102,8 @@ const DrugDashboard = () => {
 
    return (
       <div className="drug-dashboard">
-         <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-            <button
-               style={{ padding: "8px", width: "100px" }}
-               onClick={addDrug}
-            >
+         <div className="flex flex-col gap-10">
+            <button onClick={addDrug} className="btn">
                Add Drug
             </button>
             <RangeInputFields
