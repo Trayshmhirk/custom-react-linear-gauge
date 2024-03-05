@@ -12,23 +12,7 @@ const DrugDashboard = () => {
             { start: 300, end: 570, category: "mid" },
             { start: 570, end: 1000, category: "bad" },
          ],
-         pointers: [
-            {
-               value: 300,
-               color: "#948c92",
-               rangeType: "Neutral",
-            },
-            {
-               value: 500,
-               color: "#3b61bb",
-               rangeType: "Healthy",
-            },
-            {
-               value: 750,
-               color: "",
-               rangeType: "Unhealthy",
-            },
-         ],
+         pointers: [],
       },
    ]);
 
@@ -101,7 +85,7 @@ const DrugDashboard = () => {
    };
 
    return (
-      <div className="drug-dashboard">
+      <div className="flex flex-col gap-10">
          <div className="flex flex-col gap-10">
             <button onClick={addDrug} className="btn">
                Add Drug

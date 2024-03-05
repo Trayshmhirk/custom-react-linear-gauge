@@ -12,19 +12,23 @@
 
 @layer components {
    .btn {
-      @apply w-[150px] rounded-lg border-2 bg-slate-500 p-4 text-white cursor-pointer;
+      @apply w-[150px] rounded-lg bg-slate-500 p-4 text-white cursor-pointer;
    }
 
-   .drug-dashboard {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
+   .add-btn {
+      @apply rounded-lg bg-slate-500 p-4 text-white cursor-pointer;
    }
 
-   .range-inputs {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
+   .remove-btn {
+      @apply rounded-lg bg-slate-500 p-2 px-4 text-white cursor-pointer;
+   }
+
+   .input-field {
+      @apply w-20 p-2 border rounded border-cyan-400;
+   }
+
+   .select {
+      @apply w-28 p-2 pr-2 border rounded-md border-cyan-400;
    }
 
    .linear-gauge-container {
@@ -33,14 +37,6 @@
       /* align-items: center; */
       text-align: start;
       margin-top: 20px;
-   }
-
-   .range-inputs {
-      margin-bottom: 10px;
-   }
-
-   .range-inputs label {
-      margin-right: 5px;
    }
 
    .pointer-input {
