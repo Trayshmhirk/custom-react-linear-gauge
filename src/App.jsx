@@ -3,7 +3,7 @@ import DrugDashboard from "./components/DrugDashboard";
 
 function App() {
    return (
-      <div className="App">
+      <div className="App w-screen">
          <DrugDashboard />
       </div>
    );

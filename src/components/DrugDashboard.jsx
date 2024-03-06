@@ -73,43 +73,39 @@ const DrugDashboard = () => {
          {
             name: `Drug ${drugs.length + 1}`,
             ranges: [{ start: 0, end: 0, category: "good" }],
-            pointers: [
-               {
-                  value: 0,
-                  color: "",
-                  rangeType: "",
-               },
-            ],
+            pointers: [],
          },
       ]);
    };
 
    return (
-      <div className="flex flex-col gap-10">
-         <div className="flex flex-col gap-10">
-            <button onClick={addDrug} className="btn">
-               Add Drug
-            </button>
-            <RangeInputFields
-               drugs={drugs}
-               handleRangeChange={handleRangeChange}
-               handleCategoryChange={handleCategoryChange}
-               handlePointerChange={handlePointerChange}
-               addRange={addRange}
-               removeRange={removeRange}
-               addPointer={addPointer}
-               removePointer={removePointer}
-            />
-         </div>
-         <div>
-            {drugs.map((drug, index) => (
-               <LinearGauge
-                  key={index}
-                  name={drug.name}
-                  ranges={drug.ranges}
-                  pointers={drug.pointers}
+      <div className="flex flex-col gap-10 px-5">
+         <button onClick={addDrug} className="btn">
+            Add Drug
+         </button>
+         <div className="flex justify-between">
+            <div className="w-fit flex flex-col gap-10">
+               <RangeInputFields
+                  drugs={drugs}
+                  handleRangeChange={handleRangeChange}
+                  handleCategoryChange={handleCategoryChange}
+                  handlePointerChange={handlePointerChange}
+                  addRange={addRange}
+                  removeRange={removeRange}
+                  addPointer={addPointer}
+                  removePointer={removePointer}
                />
-            ))}
+            </div>
+            <div className="w-[55%]">
+               {drugs.map((drug, index) => (
+                  <LinearGauge
+                     key={index}
+                     name={drug.name}
+                     ranges={drug.ranges}
+                     pointers={drug.pointers}
+                  />
+               ))}
+            </div>
          </div>
       </div>
    );
