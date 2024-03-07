@@ -7,11 +7,7 @@ const DrugDashboard = () => {
    const [drugs, setDrugs] = useState([
       {
          name: "Drug 1",
-         ranges: [
-            { start: 0, end: 300, category: "good" },
-            { start: 300, end: 570, category: "mid" },
-            { start: 570, end: 1000, category: "bad" },
-         ],
+         ranges: [{ start: 0, end: 300, category: "good" }],
          pointers: [],
       },
    ]);
@@ -79,34 +75,35 @@ const DrugDashboard = () => {
    };
 
    return (
-      <div className="flex flex-col gap-10 px-5">
+      <div className="flex flex-col gap-10 px-7">
          <button onClick={addDrug} className="btn">
             Add Drug
          </button>
-         <div className="flex justify-between">
-            <div className="w-fit flex flex-col gap-10">
-               <RangeInputFields
-                  drugs={drugs}
-                  handleRangeChange={handleRangeChange}
-                  handleCategoryChange={handleCategoryChange}
-                  handlePointerChange={handlePointerChange}
-                  addRange={addRange}
-                  removeRange={removeRange}
-                  addPointer={addPointer}
-                  removePointer={removePointer}
-               />
-            </div>
-            <div className="w-[55%]">
-               {drugs.map((drug, index) => (
+         {drugs.map((drug, index) => (
+            <div key={index} className="flex justify-between">
+               <div className="w-fit flex flex-col gap-10">
+                  <RangeInputFields
+                     drug={drug}
+                     drugIndex={index}
+                     handleRangeChange={handleRangeChange}
+                     handleCategoryChange={handleCategoryChange}
+                     handlePointerChange={handlePointerChange}
+                     addRange={addRange}
+                     removeRange={removeRange}
+                     addPointer={addPointer}
+                     removePointer={removePointer}
+                  />
+               </div>
+               <div className="w-[57%]">
                   <LinearGauge
                      key={index}
                      name={drug.name}
                      ranges={drug.ranges}
                      pointers={drug.pointers}
                   />
-               ))}
+               </div>
             </div>
-         </div>
+         ))}
       </div>
    );
 };
