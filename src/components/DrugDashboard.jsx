@@ -75,7 +75,7 @@ const DrugDashboard = () => {
    };
 
    return (
-      <div className="flex flex-col gap-10 px-7">
+      <div className="flex flex-col gap-12 px-7">
          <button onClick={addDrug} className="btn">
             Add Drug
          </button>
